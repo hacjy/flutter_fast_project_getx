@@ -1,0 +1,114 @@
+name: flutter_template
+description: A new Flutter project.
+
+# The following line prevents the package from being accidentally published to
+# pub.dev using `flutter pub publish`. This is preferred for private packages.
+publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+
+# The following defines the version and build number for your application.
+# A version number is three numbers separated by dots, like 1.2.43
+# followed by an optional build number separated by a +.
+# Both the version and the builder number may be overridden in flutter
+# build by specifying --build-name and --build-number, respectively.
+# In Android, build-name is used as versionName while build-number used as versionCode.
+# Read more about Android versioning at https://developer.android.com/studio/publish/versioning
+# In iOS, build-name is used as CFBundleShortVersionString while build-number used as CFBundleVersion.
+# Read more about iOS versioning at
+# https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html
+version: 1.0.0+1
+
+environment:
+  sdk: ">=2.17.6 <3.0.0"
+
+# Dependencies specify other packages that your package needs in order to work.
+# To automatically upgrade your package dependencies to the latest versions
+# consider running `flutter pub upgrade --major-versions`. Alternatively,
+# dependencies can be manually updated by changing the version numbers below to
+# the latest version available on pub.dev. To see which dependencies have newer
+# versions available, run `flutter pub outdated`.
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.2
+  flutter_screenutil: ^5.4.0
+  flutter_native_splash: ^2.1.1
+  flutter_launcher_icons: ^0.9.2
+  pull_to_refresh: ^2.0.0
+  card_swiper: ^2.0.3
+  mask_text_input_formatter: ^2.1.0
+  flutter_animation_progress_bar: 2.0.1
+  vertical_scrollable_tabview: ^0.0.6
+  cached_network_image: ^3.2.0
+  modal_bottom_sheet: ^2.0.1
+  get: ^4.6.5
+  flutter_svg: ^1.0.3
+  draggable_bottom_sheet_nullsafety: ^1.0.2
+  easy_debounce: ^2.0.2+1
+  sliding_panel_pro: ^1.0.0-nullsafety.3
+  custom_marker: ^1.0.0
+  carousel_slider: ^4.0.0
+  group_button: ^5.0.0
+  counter_button: ^1.0.1
+  flutter_switch: ^0.3.2
+  url_launcher: ^6.0.20
+  flutter_slidable: ^1.2.0
+  crypto: ^3.0.1
+  sliding_up_panel: ^2.0.0+1
+  snapping_sheet: ^3.1.0
+  fluttertoast: ^8.0.9
+  permission_handler: ^9.2.0
+  custom_pop_up_menu: ^1.2.3+1
+  location: ^4.3.0
+  sentry_flutter: ^6.4.0
+  adaptive_dialog: ^1.5.0+1
+  form_field_validator: ^1.1.0
+  skeleton_loader: ^2.0.0+4
+  intl: ^0.17.0
+  get_storage: ^2.0.3
+  loading_animation_widget: ^1.1.0+5
+  loader_skeleton: ^0.0.4
+  decimal: ^2.2.0
+  common_utils: ^2.1.0
+  app_settings: ^4.1.6
+  flutterlifecyclehooks: ^2.0.0
+  lifecycle: ^0.4.4
+  dropdown_plus: ^0.0.9
+  maps_launcher: ^2.0.1
+  flutter_easyloading: ^3.0.3
+  share_plus: ^4.0.4
+  native_flutter_proxy: ^0.1.15
+  gzx_dropdown_menu: ^3.1.0
+  confirm_dialog: ^1.0.1
+  version: ^2.0.0
+  flutter_spinkit: ^5.1.0
+  flutter_easyrefresh: ^2.2.1
+  dotted_line: ^3.1.0
+  timezone: ^0.8.0
+  connectivity_plus: ^2.3.3
+  flutter_local_notifications: ^9.6.1
+  flutter_native_timezone: ^2.0.0
+  device_info_plus: ^4.0.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^2.0.0
+
+# For information on the generic Dart part of this file, see the
+# following page: https://dart.dev/tools/pub/pubspec
+
+# The following section is specific to Flutter packages.
+flutter:
+
+  # The following line ensures that the Material Icons font is
+  # included with your application, so that you can use the icons in
+  # the material Icons class.
+  uses-material-design: true
+  assets:
+    - assets/
+    - assets/svg/
+    - assets/img/
+
+flutter_native_splash:
+  color: "#ffffff"
+  fullscreen: true
