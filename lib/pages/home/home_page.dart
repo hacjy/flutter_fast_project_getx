@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_template/common/utils/storage.dart';
 import 'package:get/get.dart';
 
+import '../dialog/base_dialog.dart';
 import 'home_controller.dart';
 
 class HomePage extends StatelessWidget {
@@ -9,7 +11,42 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Scaffold(
+      body:
+     Column(
+       mainAxisAlignment: MainAxisAlignment.center,
+       crossAxisAlignment: CrossAxisAlignment.center,
+       children: [
+         Container(
+           alignment: Alignment.center,
+           margin: EdgeInsets.symmetric(horizontal: 140.w),
+           height: 140.w,
+           decoration: BoxDecoration(
+             shape: BoxShape.rectangle,
+             color: Colors.blueAccent,
+
+           ),
+           child: InkWell(
+             onTap: () {
+               // showDefaultThreeButtonDialog(
+               //   name: 'Sean Liang',
+               //   title: 'What do you want to do？',
+               //   desc: 'You have been punched in at 8:59 AM',
+               //   shrink: true,
+               // );
+               showDefaultDialog(
+                   name: 'Sean Liang',
+                   title: 'Punched in',
+                   desc: 'Face every customer with a smile!',
+                   icon: successIcon,
+                   shrink: true
+               );
+             },
+             child: Text('open base dialog',style: TextStyle(color: Colors.white,fontSize: 32.sp),),
+           ),
+         ),
+       ],
+     ));
   }
 
   refreshHome() {
