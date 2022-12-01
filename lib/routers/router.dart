@@ -1,3 +1,4 @@
+import 'package:flutter_template/pages/camera/camera_page.dart';
 import 'package:flutter_template/pages/home/home_page.dart';
 import 'package:flutter_template/routers/router_path.dart';
 import 'package:get/get.dart';
@@ -8,6 +9,11 @@ class Routers {
     GetPage(
       name: RouterPath.home,
       page: () => new HomePage(),
+    ),
+
+    GetPage(
+      name: RouterPath.camera,
+      page: () => CameraPage(),
     ),
   ];
 }

@@ -26,8 +26,8 @@ void main() async {
     ));
     await SystemChrome.setPreferredOrientations(
       [
-        DeviceOrientation.portraitUp, // 竖屏 Portrait 模式
-        DeviceOrientation.portraitDown,
+        DeviceOrientation.landscapeLeft, // 竖屏 Portrait 模式
+        DeviceOrientation.landscapeRight,
       ],
     );
 
@@ -43,7 +43,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     FlutterNativeSplash.remove();
     return ScreenUtilInit(
-      designSize: const Size(750, 1623),
+      // designSize: const Size(750, 1623),
+      designSize: const Size(1920, 1080),
       minTextAdapt: true,
       splitScreenMode: true,
       builder: (context, Widget? widget) {
@@ -66,9 +67,7 @@ class MyApp extends StatelessWidget {
               bodyText2: TextStyle(fontSize: 16.sp),
             ),
           ),
-          initialRoute: !isLogin()
-              ? RouterPath.login
-              : RouterPath.home,
+          initialRoute: RouterPath.camera,
           getPages: Routers.routes,
           builder: EasyLoading.init(),
           initialBinding: InitBinding(),

@@ -5,4 +5,6 @@ class RouterPath {
 
   ///**************** 登录模块 ****************
   static const login = "/login";
+
+  static const camera = "/camera";
 }

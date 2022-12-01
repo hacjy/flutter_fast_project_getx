@@ -10,6 +10,7 @@ class CountDownTimer extends StatefulWidget {
   final int seconds;
   final TextStyle? style;
   final Function? onCompleted;
+  final Function? onProgress;
   final bool? isDate;
 
   const CountDownTimer(
@@ -17,6 +18,7 @@ class CountDownTimer extends StatefulWidget {
       required this.seconds,
       this.style,
       this.onCompleted,
+      this.onProgress,
       this.isDate})
       : super(key: key);
 
@@ -113,6 +115,9 @@ class _CountDownTimerState extends State<CountDownTimer> {
         setState(() {
           _currentSeconds = _currentSeconds - interval.inSeconds;
         });
+        if (widget.onProgress != null) {
+          widget.onProgress!(_currentSeconds);
+        }
       });
     }
   }

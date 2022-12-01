@@ -20,7 +20,7 @@ showBaseDialog({
   bool showClose: false,
 }) {
   final dialogHeight = shrink ? null : height ?? 500.w;
-  final dialogWidth = shrink ? null : width ?? 578.w;
+  final dialogWidth = width ?? 680.w;
 
   Widget contentBody = Column(
     children: [
@@ -60,7 +60,7 @@ showBaseDialog({
             Container(
               width: dialogWidth,
               height: dialogHeight,
-              margin: EdgeInsets.only(top: 75.w,right: 60.w,left: 60.w),
+              margin: EdgeInsets.only(top: 75.w, right: 60.w, left: 60.w),
               padding: EdgeInsets.only(top: 96.w),
               decoration: BoxDecoration(
                 color: Colors.white,
@@ -82,8 +82,8 @@ showBaseDialog({
                   source: avatar ?? '',
                   radius: 75.w,
                 ))),
-            if(showClose)
-            Positioned(top: 36.w, right: 32.w, child: closeView()),
+            if (showClose)
+              Positioned(top: 36.w, right: 32.w, child: closeView()),
           ],
         )),
   );
@@ -160,7 +160,7 @@ showDefaultThreeButtonDialog({
       barrierDismissible: barrierDismissible,
       height: height,
       width: width,
-  showClose: showClose);
+      showClose: showClose);
 }
 
 Widget get successIcon => Container(
@@ -193,10 +193,19 @@ Widget get failIcon => Container(
       ),
     );
 
-Widget buildDefaultContent(String title, String desc, {Widget? icon}) {
+Widget buildDefaultContent(String title, String desc,
+    {Widget? icon, String? iconText, Widget? descContent}) {
   return Column(
     children: [
       icon ?? SizedBox(),
+      if ((iconText ?? '').isNotEmpty)
+        Container(
+          margin: EdgeInsets.only(top: 12.w),
+          child: Text(
+            iconText ?? '',
+            style: TextStyle(fontSize: 24.sp, fontWeight: FontWeight.bold),
+          ),
+        ),
       SizedBox(
         height: icon != null ? 20.w : 0,
       ),
@@ -211,7 +220,7 @@ Widget buildDefaultContent(String title, String desc, {Widget? icon}) {
       SizedBox(
         height: 20.w,
       ),
-      if (desc.isNotEmpty)
+      if (desc.isNotEmpty && descContent == null)
         Text(
           desc ?? '',
           style: TextStyle(
@@ -219,6 +228,7 @@ Widget buildDefaultContent(String title, String desc, {Widget? icon}) {
             fontSize: 24.sp,
           ),
         ),
+      descContent ?? SizedBox(),
       SizedBox(
         height: 40.w,
       )
@@ -226,7 +236,11 @@ Widget buildDefaultContent(String title, String desc, {Widget? icon}) {
   );
 }
 
-Widget buildOkButton({Function? onClick, String? text}) {
+Widget buildOkButton(
+    {double? width,
+      Function? onClick,
+    String? text,
+    int seconds = 0}) {
   return InkWell(
     borderRadius: BorderRadius.circular(8.w),
     onTap: () {
@@ -237,6 +251,7 @@ Widget buildOkButton({Function? onClick, String? text}) {
     child: Container(
       alignment: Alignment.center,
       margin: EdgeInsets.symmetric(horizontal: 140.w),
+      width: width??400.w,
       height: 60.w,
       decoration: BoxDecoration(
         color: Colors.black,
@@ -245,16 +260,21 @@ Widget buildOkButton({Function? onClick, String? text}) {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
-        children: [Text(
-          text ?? 'OK',
-          style: TextStyle(fontSize: 24.sp, color: Colors.white),
-        ),
-        // CountDownTimer(seconds: 3,onCompleted: (){
-        //   Get.back();
-        // },),
-          CountDownTimer(isDate:true,seconds: 1669863058,onCompleted: (){
-            Get.back();
-          },),
+        children: [
+          Text(
+            text ?? 'OK',
+            style: TextStyle(fontSize: 24.sp, color: Colors.white),
+          ),
+          if (seconds>0)
+            CountDownTimer(
+              seconds: seconds,
+              onCompleted: () {
+                Get.back();
+              },
+            ),
+          // CountDownTimer(isDate:true,seconds: 1669863058,onCompleted: (){
+          //   Get.back();
+          // },),
         ],
       ),
     ),
